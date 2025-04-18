@@ -19,7 +19,7 @@ const TaskTable = ({ expenses, onDelete }) => {
               <td>{expense.task}</td>
               <td>{expense.description}</td>
               <td>{expense.category}</td>
-              <td>{expense.when}</td>
+              <td>{expense.due}</td>
               <td>
                 <button onClick={() => onDelete(index)}>Delete</button>
                </td>
@@ -31,4 +31,4 @@ const TaskTable = ({ expenses, onDelete }) => {
   );
 };
 
-export default ExpenseTable;
+export default TaskTable;
