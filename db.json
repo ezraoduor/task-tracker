@@ -48,13 +48,6 @@
       "description": "30 mins before sleep",
       "category": "Self-Care",
       "due": "10:00 PM"
-    },
-    {
-      "id": "aa2b",
-      "task": "",
-      "description": "",
-      "category": "",
-      "due": ""
     }
   ]
 }

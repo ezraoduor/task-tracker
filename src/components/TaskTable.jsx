@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TaskTable = ({ tasks, onDelete }) => {
+const TaskTable = ({ tasks, onDelete, onEdit }) => {
   return (
     <div className="task-table">
       <table>
@@ -10,7 +10,7 @@ const TaskTable = ({ tasks, onDelete }) => {
             <th>Description</th>
             <th>Category</th>
             <th>Due</th>
-            <th></th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -21,6 +21,7 @@ const TaskTable = ({ tasks, onDelete }) => {
               <td>{task.category}</td>
               <td>{task.due}</td>
               <td>
+                <button onClick={() => onEdit(task)}>Edit</button>
                 <button onClick={() => onDelete(task.id)}>Delete</button>
               </td>
             </tr>

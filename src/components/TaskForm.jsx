@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const TaskForm = ({ onTaskAdd, search }) => {
+const TaskForm = ({ onTaskAdd, search, taskToEdit, onTaskUpdate }) => {
   const [formData, setFormData] = useState({
     task: "",
     description: "",
     category: "",
     due: ""
   });
+
+  
+  useEffect(() => {
+    if (taskToEdit) {
+      setFormData(taskToEdit);
+    }
+  }, [taskToEdit]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -16,22 +23,13 @@ const TaskForm = ({ onTaskAdd, search }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newTask = { ...formData };
-
-    fetch("http://localhost:3000/tasks", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify(newTask)
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log("Task added:", data);
-        if (onTaskAdd) onTaskAdd(data); 
-      })
-      .catch(err => console.error(err));
+    if (taskToEdit) {
+      
+      onTaskUpdate(formData);
+    } else {
+      
+      onTaskAdd(formData);
+    }
 
     setFormData({
       task: "",
@@ -41,43 +39,13 @@ const TaskForm = ({ onTaskAdd, search }) => {
     });
   };
 
-  const isMatchingSearch = (value) => {
-    if (!search) return true;
-    return value.toLowerCase().includes(search.toLowerCase());
-  };
-
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="task"
-        placeholder="Task"
-        value={formData.task}
-        onChange={handleChange}
-        className={isMatchingSearch(formData.task) ? '' : 'dimmed'}
-      />
-      <input
-        type="text"
-        name="description"
-        placeholder="Description"
-        value={formData.description}
-        onChange={handleChange}
-        className={isMatchingSearch(formData.description) ? '' : 'dimmed'}
-      />
-      <input
-        type="text"
-        name="category"
-        placeholder="Category"
-        value={formData.category}
-        onChange={handleChange}
-      />
-      <input
-        type="time"
-        name="due"
-        value={formData.due}
-        onChange={handleChange}
-      />
-      <button type="submit">Add Task</button>
+      <input type="text" name="task" placeholder="Task" value={formData.task} onChange={handleChange}/>
+      <input type="text" name="description" placeholder="Description" value={formData.description} onChange={handleChange}/>
+      <input type="text" name="category" placeholder="Category" value={formData.category} onChange={handleChange}/>
+      <input type="time" name="due" value={formData.due} onChange={handleChange}/>
+      <button type="submit">{taskToEdit ? "Update Task" : "Add Task"}</button>
     </form>
   );
 };
