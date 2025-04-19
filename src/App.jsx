@@ -10,7 +10,7 @@ function App() {
 
   
   useEffect(() => {
-    fetch("http://localhost:3000/tasks")
+    fetch("https://task-tracker-json-server.vercel.app/tasks/tasks")
       .then((response) => response.json())
       .then((data) => setTasks(data))
       .catch((error) => console.error('Error fetching tasks:', error));
@@ -18,7 +18,7 @@ function App() {
 
   
   const handleTaskAdd = (newTask) => {
-    fetch("http://localhost:3000/tasks", {
+    fetch("https://task-tracker-json-server.vercel.app/tasks/tasks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -35,7 +35,7 @@ function App() {
 
   
   const handleTaskUpdate = (updatedTask) => {
-    fetch(`http://localhost:3000/tasks/${updatedTask.id}`, {
+    fetch(`https://task-tracker-json-server.vercel.app/tasks/${updatedTask.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -54,7 +54,7 @@ function App() {
   };
   
   const handleDelete = (id) => {
-    fetch(`http://localhost:3000/tasks/${id}`, {
+    fetch(`https://task-tracker-json-server.vercel.app/tasks/tasks/${id}`, {
       method: "DELETE",
     })
       .then(() => {
@@ -78,6 +78,7 @@ function App() {
   return (
     <div>
       <h1>Task Manager</h1>
+      <p>Take charge of your tasks</p>
       <TaskForm
         onTaskAdd={handleTaskAdd}
         search={search}
