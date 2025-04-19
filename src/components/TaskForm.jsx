@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 
 const TaskForm = ({ onTaskAdd, search }) => {
   const [formData, setFormData] = useState({
-    expense: "",
+    task: "",
     description: "",
     category: "",
-    amount: "",
-    date: ""
+    due: ""
   });
 
   const handleChange = (e) => {
@@ -35,15 +34,13 @@ const TaskForm = ({ onTaskAdd, search }) => {
       .catch(err => console.error(err));
 
     setFormData({
-      expense: "",
+      task: "",
       description: "",
       category: "",
-      amount: "",
-      date: ""
+      due: ""
     });
   };
 
-  
   const isMatchingSearch = (value) => {
     if (!search) return true;
     return value.toLowerCase().includes(search.toLowerCase());
@@ -51,10 +48,35 @@ const TaskForm = ({ onTaskAdd, search }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" name="expense" placeholder="Expense" value={formData.expense} onChange={handleChange} />
-      <input type="text" name="description" placeholder="Description" value={formData.description} onChange={handleChange}/>
-      <input type="text" name="category" placeholder="Category" value={formData.category} onChange={handleChange}/>
-      <input type="time" name="due" value={formData.due} onChange={handleChange}/>
+      <input
+        type="text"
+        name="task"
+        placeholder="Task"
+        value={formData.task}
+        onChange={handleChange}
+        className={isMatchingSearch(formData.task) ? '' : 'dimmed'}
+      />
+      <input
+        type="text"
+        name="description"
+        placeholder="Description"
+        value={formData.description}
+        onChange={handleChange}
+        className={isMatchingSearch(formData.description) ? '' : 'dimmed'}
+      />
+      <input
+        type="text"
+        name="category"
+        placeholder="Category"
+        value={formData.category}
+        onChange={handleChange}
+      />
+      <input
+        type="time"
+        name="due"
+        value={formData.due}
+        onChange={handleChange}
+      />
       <button type="submit">Add Task</button>
     </form>
   );

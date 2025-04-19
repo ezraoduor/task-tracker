@@ -1,53 +1,60 @@
 {
-    "tasks": [
-      {
-        "id": 1,
-        "task": "Morning coffee",
-        "description": "Brew fresh coffee",
-        "category": "Routine",
-        "due": "7:00 AM"
-      },
-      {
-        "id": 2,
-        "task": "Check emails",
-        "description": "Respond to urgent messages",
-        "category": "Work",
-        "due": "8:00 AM"
-      },
-      {
-        "id": 3,
-        "task": "Buy groceries",
-        "description": "Milk, eggs, bread, fruits",
-        "category": "Shopping",
-        "due": "5:30 PM (after work)"
-      },
-      {
-        "id": 4,
-        "task": "Gym session",
-        "description": "45 mins cardio + weights",
-        "category": "Health",
-        "due": "6:30 PM"
-      },
-      {
-        "id": 5,
-        "task": "Cook dinner",
-        "description": "Try new chicken recipe",
-        "category": "Meals",
-        "due": "7:30 PM"
-      },
-      {
-        "id": 6,
-        "task": "Water plants",
-        "description": "Living room and balcony",
-        "category": "Home",
-        "due": "8:00 PM"
-      },
-      {
-        "id": 7,
-        "task": "Read novel",
-        "description": "30 mins before sleep",
-        "category": "Self-Care",
-        "due": "10:00 PM"
-      }
-    ]
-  }
+  "tasks": [
+    {
+      "id": "1",
+      "task": "Morning coffee",
+      "description": "Brew fresh coffee",
+      "category": "Routine",
+      "due": "7:00 AM"
+    },
+    {
+      "id": "2",
+      "task": "Check emails",
+      "description": "Respond to urgent messages",
+      "category": "Work",
+      "due": "8:00 AM"
+    },
+    {
+      "id": "3",
+      "task": "Buy groceries",
+      "description": "Milk, eggs, bread, fruits",
+      "category": "Shopping",
+      "due": "5:30 PM (after work)"
+    },
+    {
+      "id": "4",
+      "task": "Gym session",
+      "description": "45 mins cardio + weights",
+      "category": "Health",
+      "due": "6:30 PM"
+    },
+    {
+      "id": "5",
+      "task": "Cook dinner",
+      "description": "Try new chicken recipe",
+      "category": "Meals",
+      "due": "7:30 PM"
+    },
+    {
+      "id": "6",
+      "task": "Water plants",
+      "description": "Living room and balcony",
+      "category": "Home",
+      "due": "8:00 PM"
+    },
+    {
+      "id": "7",
+      "task": "Read novel",
+      "description": "30 mins before sleep",
+      "category": "Self-Care",
+      "due": "10:00 PM"
+    },
+    {
+      "id": "aa2b",
+      "task": "",
+      "description": "",
+      "category": "",
+      "due": ""
+    }
+  ]
+}

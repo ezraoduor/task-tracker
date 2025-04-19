@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TaskTable = ({ task, onDelete }) => {
+const TaskTable = ({ tasks, onDelete }) => {
   return (
     <div className="task-table">
       <table>
@@ -9,25 +9,25 @@ const TaskTable = ({ task, onDelete }) => {
             <th>Task</th>
             <th>Description</th>
             <th>Category</th>
-            <th>due</th>
+            <th>Due</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          {task.map((expense, index) => (
-            <tr key={index}>
-              <td>{expense.task}</td>
-              <td>{expense.description}</td>
-              <td>{expense.category}</td>
-              <td>{expense.due}</td>
+          {tasks.map((task) => (
+            <tr key={task.id}>
+              <td>{task.task}</td>
+              <td>{task.description}</td>
+              <td>{task.category}</td>
+              <td>{task.due}</td>
               <td>
-                <button onClick={() => onDelete(index)}>Delete</button>
-               </td>
+                <button onClick={() => onDelete(task.id)}>Delete</button>
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
-  </div>
+    </div>
   );
 };
 
