@@ -28,10 +28,12 @@ function App() {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log('Task added:', data);
         setTasks((prevTasks) => [...prevTasks, data]);
       })
       .catch((error) => console.error('Error adding task:', error));
   };
+  
 
   
   const handleTaskUpdate = (updatedTask) => {
