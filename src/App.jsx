@@ -10,7 +10,7 @@ function App() {
 
   
   useEffect(() => {
-    fetch("https://task-tracker-json-server.vercel.app/tasks/tasks")
+    fetch("https://task-tracker-json-server.vercel.app/tasks")
       .then((response) => response.json())
       .then((data) => setTasks(data))
       .catch((error) => console.error('Error fetching tasks:', error));
@@ -18,7 +18,7 @@ function App() {
 
   
   const handleTaskAdd = (newTask) => {
-    fetch("https://task-tracker-json-server.vercel.app/tasks/tasks", {
+    fetch("https://task-tracker-json-server.vercel.app/tasks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -54,7 +54,7 @@ function App() {
   };
   
   const handleDelete = (id) => {
-    fetch(`https://task-tracker-json-server.vercel.app/tasks/tasks/${id}`, {
+    fetch(`https://task-tracker-json-server.vercel.app/tasks/${id}`, {
       method: "DELETE",
     })
       .then(() => {
