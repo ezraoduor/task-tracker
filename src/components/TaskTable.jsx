@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TaskTable = ({ expenses, onDelete }) => {
+const TaskTable = ({ task, onDelete }) => {
   return (
     <div className="task-table">
       <table>
@@ -9,12 +9,12 @@ const TaskTable = ({ expenses, onDelete }) => {
             <th>Task</th>
             <th>Description</th>
             <th>Category</th>
-            <th>when</th>
+            <th>due</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          {expenses.map((expense, index) => (
+          {task.map((expense, index) => (
             <tr key={index}>
               <td>{expense.task}</td>
               <td>{expense.description}</td>
